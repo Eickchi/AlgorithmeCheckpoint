@@ -1,0 +1,29 @@
+ALGORITHM StringOps
+VAR
+    vc:INTEGER=0;
+    wc:INTEGER=0;
+    i :INTEGER=0;
+    Phrase:STRING;
+    PhraseLength:INTEGER;
+
+BEGIN
+ PhraseLength:=len(Phrase); //longeur de la chaine
+REPEAT
+ write("donner une chaine de caractére ");
+UNTIL (len(Phrase)in [0,255])
+
+ read(Phrase);
+FOR i FROM 0 TO 255 STEP step  DO
+    IF (Phrase[i]:=" " or Phrase[i]:= "\n") THEN
+        wc:=i;
+        i=i+1;
+    ELSE
+        print("There is only one word!");
+    END_IF
+    print("The number of words is ",wc);//words count
+    IF (Phrase[i]:="a" or "e" or "i" or "o" or "u") THEN
+        vc=vc+1;
+    END_IF
+    print("the number of vowels in the sentance is ",vc);
+END_FOR
+END
